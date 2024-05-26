@@ -14,7 +14,7 @@ require("dotenv").config();
 exports.sendotp=async (req,res)=>{
     try{
         const {email}=req.body;
-        console.log(email);
+        // console.log(email);
         if(!email){
             return res.json({
                 success:false,
@@ -62,7 +62,7 @@ exports.sendotp=async (req,res)=>{
 exports.signup=async (req,res)=>{
     try{
         const {firstname,lastname,email,password,confirmpassword,accounttype,otp}=req.body;
-        // console.log(firstname,lastname,password,email,confirmpassword,accounttype,otp)
+        console.log(firstname,lastname,password,email,confirmpassword,accounttype,otp)
         if(!firstname||!lastname|| !email ||!password || !confirmpassword|| !accounttype ||!otp){
             return res.json({
                 success:false,
@@ -83,17 +83,17 @@ exports.signup=async (req,res)=>{
             })
         }
         const latestotp=await Otp.find({email}).sort({cretedat:"desc"}).limit(1);
-        // console.log("laeeetest ot is ==============================:",latestotp);
-        // console.log(latestotp.otp)
-        // console.log(otp)
-        // console.log(latestotp.otp!==otp)
+        console.log("laeeetest ot is ==============================:",latestotp);
+        console.log(latestotp.otp)
+        console.log(otp)
+        console.log(latestotp.otp!==otp)
         if(!latestotp || latestotp[0].otp!==otp){
             return res.json({
                 success:false,
                 message:"OTP Not Found"
             })
         }
-        // console.log("otp is verified");
+        console.log("otp is verified");
         const hashedpassword=await bcrypt.hash(password,10);
 
         const profiledetails=await Profile.create({
