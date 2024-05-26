@@ -9,7 +9,7 @@ const {databaseConnect}=require("./config/ConnectToDatabase");
 const {cloudinaryConnect}=require("./config/ConnectToCloudinary");
 //
 const authroutes=require("./routes/auth");
-// const userroutes=require("./routes/user");
+const userroutes=require("./routes/user");
 //
 app.use(express.json())
 app.use(cookieparser());
@@ -26,7 +26,7 @@ databaseConnect();
 cloudinaryConnect();
 //
 app.use("/api/v1/auth",authroutes);
-// app.use("/api/v1/user",userroutes);
+app.use("/api/v1/user",userroutes);
 //
 app.get("/",(req,res)=>{
     return res.json({
