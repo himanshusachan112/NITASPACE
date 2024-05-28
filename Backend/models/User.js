@@ -22,8 +22,7 @@ const userschema=new mongoose.Schema({
     },
     accounttype:{
         type:String,
-        enum:["Buyer","seller"],
-        required:true,
+        default:"User"
     },
     forgotpasswordlink:{
         type:String,

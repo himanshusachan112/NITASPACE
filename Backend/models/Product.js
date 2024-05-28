@@ -21,7 +21,7 @@ const productschema=new mongoose.Schema({
     },
     status:{
         type:String,
-        enum:["Pending","Sold","Purchased"],
+        enum:["Tocart","Sold","Purchased","Forsale"],
     },
     createdat:{
         type:Date,
