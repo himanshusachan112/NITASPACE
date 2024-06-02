@@ -21,12 +21,9 @@ const productschema=new mongoose.Schema({
     },
     status:{
         type:String,
-        enum:["Tocart","Sold","Purchased","Forsale"],
+        enum:["Sold","Purchased","Forsale"],
     },
-    createdat:{
-        type:Date,
-        default:Date.now,
-    },
+    
     quantity:{
         type:Number,
         default:1,
@@ -39,7 +36,11 @@ const productschema=new mongoose.Schema({
     category:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Category"
-    }
+    },
+    createdat:{
+        type:Date,
+        default:Date.now,
+    },
 
 })
 

@@ -10,6 +10,8 @@ const {cloudinaryConnect}=require("./config/ConnectToCloudinary");
 //
 const authroutes=require("./routes/auth");
 const userroutes=require("./routes/user");
+const productroutes=require("./routes/product");
+const categoryroutes=require("./routes/category");
 //
 app.use(express.json())
 app.use(cookieparser());
@@ -27,6 +29,8 @@ cloudinaryConnect();
 //
 app.use("/api/v1/auth",authroutes);
 app.use("/api/v1/user",userroutes);
+app.use("/api/v1/product",productroutes);
+app.use("/api/v1/category",categoryroutes);
 //
 app.get("/",(req,res)=>{
     return res.json({
