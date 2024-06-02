@@ -219,3 +219,20 @@ exports.getproductpagedetails=async (req,res)=>{
         })
     }
 }
+
+exports.getallproduct=async (req,res)=>{
+    try{
+        const products=await Product.find().populate("owner").populate("category");
+        res.json({
+            success:true,
+            message:"All Products fetched successfully",
+            data:products
+        })
+    }
+    catch(err){
+        return res.json({
+            success:false,
+            message:err.message
+        })
+    }
+}
