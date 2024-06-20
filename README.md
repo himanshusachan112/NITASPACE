@@ -18,7 +18,11 @@ To contribute to this project follow the guide.
   
   # mail sender deatils
   MAIL_HOST=smtp.gmail.com  
+
+
   MAIL_USER=  --user your email id--
+  
+
   MAIL_PASS=  --use your mail password--
   
   
