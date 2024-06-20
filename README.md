@@ -7,7 +7,7 @@ To contribute to this project follow the guide.
 - initialize variables in .env file.
   # database details.
   PORT=4000
-  MONGODB_URL=  <create cluster in mongodb and paste url>
+  MONGODB_URL=  --create cluster in mongodb and paste url--
   
   # cloudinary details.
   CLOUD_NAME=  <create account in cloudinary and paste name , api-secret, api-key>
@@ -18,8 +18,8 @@ To contribute to this project follow the guide.
   
   # mail sender deatils
   MAIL_HOST=smtp.gmail.com  
-  MAIL_USER=  <user your email id.>
-  MAIL_PASS=  <use your mail password>
+  MAIL_USER=  --user your email id--
+  MAIL_PASS=  --use your mail password--
   
   
   
