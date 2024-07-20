@@ -9,9 +9,7 @@ require("dotenv").config()
 exports.createproduct=async (req,res)=>{
     try{
         const {id,email}=req.user;
-    
         const imagearr=req.files.images;
-        
         const {productname,productdescription,price,status,quantity,categoryid}=req.body;
         if(!id || !email || !productname || !productdescription || !price || !status || !quantity || !categoryid){
             return res.json({

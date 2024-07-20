@@ -13,6 +13,7 @@ const userroutes=require("./routes/user");
 const productroutes=require("./routes/product");
 const categoryroutes=require("./routes/category");
 const conversationroutes=require("./routes/conversation");
+const transactionroutes=require("./routes/checktransaction");
 //
 app.use(express.json())
 app.use(cookieparser());
@@ -33,6 +34,8 @@ app.use("/api/v1/user",userroutes);
 app.use("/api/v1/product",productroutes);
 app.use("/api/v1/category",categoryroutes);
 app.use("/api/v1/conversation",conversationroutes);
+app.use("/api/v1/transaction",transactionroutes);
+
 //
 app.get("/",(req,res)=>{
     return res.json({
