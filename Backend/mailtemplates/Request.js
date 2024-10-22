@@ -1,4 +1,4 @@
-exports.requestproduct=(buyername ,sellername, productname,  productid)=>{
+exports.requestproduct=(buyername ,sellername, productname,  productid, quantity)=>{
     return `<DOCTYPE html>
     <html>
         <head>
@@ -13,6 +13,7 @@ exports.requestproduct=(buyername ,sellername, productname,  productid)=>{
 
         <body>
             <div>
+            Quantities ${quantity}
             Hey ${sellername} you got a request from ${buyername} to sell your product ${productname}
             Product id ${productid}
             Kindly visit to the website to sell it.

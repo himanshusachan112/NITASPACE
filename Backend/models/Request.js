@@ -21,6 +21,10 @@ const requestschema=new mongoose.Schema({
         type:Date,
         default:Date.now,
     },
+    quantity:{
+        type : String,
+        required:true
+    }
 })
 
 

@@ -16,9 +16,9 @@ require("dotenv").config();
 exports.productrequest=async (req,res)=>{
     try{
         const {id,email}=req.user;
-        const {buyername, selleremail, productid}=req.body;
+        const {buyername, selleremail, productid, quantity}=req.body;
         const buyeremail=email;
-        if(!buyeremail || !selleremail || !productid || !buyername){
+        if(!buyeremail || !selleremail || !productid || !buyername || !quantity){
             return res.json({
                 success:false,
                 message:"All Fields are required"
@@ -49,11 +49,12 @@ exports.productrequest=async (req,res)=>{
             })
         }
     
-        const mailresposne=await mailsender(selleremail,"Request to Sell",requestproduct(buyername, sellerdata.firstname + " " + sellerdata.lastname, productdata.productname, productid));
+        const mailresposne=await mailsender(selleremail,"Request to Sell",requestproduct(buyername, sellerdata.firstname + " " + sellerdata.lastname, productdata.productname, productid, quantity));
         const saverequest=await Request.create({
             buyer:id,
             seller:sellerdata._id,
             product:productdata._id,
+            quantity:quantity
         })
 
         res.json({
@@ -113,7 +114,7 @@ exports.shedulemeet=async (req,res)=>{
         
 
         const buyername=requestdata.buyer.firstname + " " + requestdata.buyer.lastname;
-        const mailresposne=await mailsender(requestdata.buyer.email,"Shedule Venue",shedulevenue(buyername, sellername, productdata.productname, productid,venue, date ,time ));
+        const mailresposne=await mailsender(requestdata.buyer.email,"Shedule Venue",shedulevenue(buyername, sellername, productdata.productname, productid,venue, date ,time, requestdata.quantity));
 
         const saveshedule=await Shedule.create({
             requestid:requestid,
