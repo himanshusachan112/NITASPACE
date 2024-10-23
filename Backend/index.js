@@ -14,6 +14,7 @@ const productroutes=require("./routes/product");
 const categoryroutes=require("./routes/category");
 const conversationroutes=require("./routes/conversation");
 const transactionroutes=require("./routes/checktransaction");
+const ratingandreviewsroutes=require("./routes/ratingandreviews");
 //
 app.use(express.json())
 app.use(cookieparser());
@@ -35,6 +36,7 @@ app.use("/api/v1/product",productroutes);
 app.use("/api/v1/category",categoryroutes);
 app.use("/api/v1/conversation",conversationroutes);
 app.use("/api/v1/transaction",transactionroutes);
+app.use("/api/v1/ratingandreviews", ratingandreviewsroutes);
 
 //
 app.get("/",(req,res)=>{

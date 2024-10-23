@@ -41,6 +41,10 @@ const productschema=new mongoose.Schema({
         type:Date,
         default:Date.now,
      },
+    ratingandreviews:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Ratingandreviews",
+    }],
 
 })
 

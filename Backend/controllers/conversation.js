@@ -119,7 +119,7 @@ exports.shedulemeet=async (req,res)=>{
         const saveshedule=await Shedule.create({
             requestid:requestid,
             venue:venue,
-            date:date,
+            date:date, 
             time:time
         })
 

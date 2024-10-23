@@ -40,7 +40,11 @@ const userschema=new mongoose.Schema({
     additionaldetails:{
         type:mongoose.Schema.Types.ObjectId,
         ref:"Profile",
-    }
+    },
+    ratingandreviews:[{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Ratingandreviews",
+    }],
 })
 
 module.exports=mongoose.model("User",userschema);

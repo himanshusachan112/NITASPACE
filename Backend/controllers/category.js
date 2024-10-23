@@ -90,3 +90,24 @@ catch(err){
 }
 
 }
+
+
+
+
+exports.getcategories=async (req,res)=>{
+    try{
+        const data=await Category.find();
+        return res.json({
+            success:true,
+            message:"Fetched categories successfully",
+            data:data
+        })
+    }
+    catch(err){
+        return res.json({
+            success:false,
+            message:err.message
+        })
+    }
+}
+
